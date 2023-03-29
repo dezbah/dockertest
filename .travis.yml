@@ -4,10 +4,15 @@ services:
     - docker
 
 before_install:
-    - docker build -t dezbah/dockertest -f Dockerfile.dev .
+    - npm install -g npm@latest
+    - npm install -g aws-cli
 
-script:
-    - docker run -e CI=true dezbah/dockertest npm run test
+install:
+    - npm install
+
+before_deploy:
+    # Build Docker Compose file
+    - docker-compose build
 
 deploy:
     provider: elasticbeanstalk
