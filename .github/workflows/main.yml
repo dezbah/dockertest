@@ -23,7 +23,7 @@ jobs:
           tags: dezbah/react-app:${{ github.sha }}
 
       - name: Deploy to Elastic Beanstalk
-        uses: einaregilsson/beanstalk-deploy@v16.3
+        uses: dezbah/react-app:${{ github.sha }}
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
